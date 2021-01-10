@@ -14,12 +14,12 @@ app.use(express.urlencoded({extended:true}));
 
 app.use(cors());
 
-if(process.env.NODE_ENV === 'production'){
-    app.use(express.static(path.join(__dirname, 'client/build')));
-    app.get('*', function(req, res){
-        res.send(path.join(__dirname, 'client/build', 'index.html'));
-    });
-}
+// if(process.env.NODE_ENV === 'production'){
+//     app.use(express.static(path.join(__dirname, 'client/build')));
+//     app.get('*', function(req, res){
+//         res.send(path.join(__dirname, 'client/build', 'index.html'));
+//     });
+// }
 
 
 app.post("/payment", (req, res)=>{
