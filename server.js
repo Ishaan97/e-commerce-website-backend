@@ -23,7 +23,6 @@ if(process.env.NODE_ENV === 'production'){
 
 
 app.post("/payment", (req, res)=>{
-    console.log(req.body)
     const body = {
         source: req.body.token.id,
         amount : req.body.amount,
@@ -34,7 +33,6 @@ app.post("/payment", (req, res)=>{
     stripe.charges.create(body).then(stripeRes => {
         res.status(200).send({success : stripeRes})
     }).catch(stripeError => {
-        console.log(stripeError)
         res.status(500).send({error : stripeError})
     })
 })
