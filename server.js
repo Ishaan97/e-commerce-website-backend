@@ -21,6 +21,9 @@ app.use(cors());
 //     });
 // }
 
+app.get('/',(req,res) => {
+    return res.send('Hello');
+});
 
 app.post("/payment", (req, res)=>{
     const body = {
@@ -35,7 +38,7 @@ app.post("/payment", (req, res)=>{
     }).catch(stripeError => {
         res.status(500).send({error : stripeError})
     })
-})
+});
 
 app.listen(PORT, error =>{
     if (error) throw error;
